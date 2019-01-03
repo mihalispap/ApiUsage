@@ -13,6 +13,7 @@ fun main(args: Array<String>) {
     http.get("/hello") { "Welcome to website abc." }
 
     http.get("/find/top-params/:n") {
+        type("application/json")
         apiQueryRepository.findTopNParams(params("n").toInt())
     }
 

@@ -35,12 +35,7 @@ class ApiQueryRepository {
 
         val obj : JSONObject = response.jsonObject
 
-        val json : String = response.jsonObject.toString()
-
-
-        //val aggreagtions  = mapper.readValue(obj, List::class.java)
-
-        return obj
+        return ((obj.get("aggregations") as JSONObject).get("params") as JSONObject).get("buckets")
     }
 
 }
